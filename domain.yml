@@ -1,0 +1,112 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- sendemail
+- greet
+- restaurant_search
+- affirm
+- stop
+- goodbye
+entities:
+- budget
+- budget_ok
+- cuisine
+- cuisine_ok
+- email
+- location
+- location_ok
+- people
+- price
+- restaurant_exist
+slots:
+  budget:
+    type: text
+    influence_conversation: true
+  budget_ok:
+    type: bool
+    influence_conversation: true
+  cuisine:
+    type: text
+    influence_conversation: true
+  cuisine_ok:
+    type: bool
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true
+  location:
+    type: text
+    influence_conversation: true
+  location_ok:
+    type: bool
+    influence_conversation: true
+  restaurant_exist:
+    type: bool
+    influence_conversation: true
+responses:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    - payload: American
+      title: American
+    - payload: Mexican
+      title: Mexican
+    text: what kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_default:
+  - text: i cannot understand
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  - text: Bye !
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_notavailable:
+  - text: Sorry, wrong input. Please enter a proper value !
+  utter_ask_budget:
+  - buttons:
+    - title: Less than Rs. 300
+      payload: Less than Rs. 300
+    - title: Rs. 300-700
+      payload: Rs. 300 - 700
+    - title: More than 700
+      payload: More than 700
+    text: What's the average budget for two people?
+  utter_ask_email:
+  - text: Do you want a list of top 5 restaurants in your email?
+  - text: Should I send you details of all the restaurants on email?
+  utter_ask_email_id:
+  - text: Please enter your email id !
+actions:
+- action_ask_budget
+- action_check_budget
+- action_check_cuisine
+- action_check_location
+- action_search_restaurants
+- action_send_email
+- action_validate_email
+- n
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_email
+- utter_ask_email_id
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_notavailable
+version: '2.0'
